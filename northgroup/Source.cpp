@@ -33,16 +33,18 @@ int main(int argc, char** argv)
 	//	cout << "Cannot open the web cam" << endl;
 	//	return -1;
 	//}
-
-
+	
+	//RGB color filter integers
 	int iLowH = 0;
 	int iHighH = 50;
 	iLowH = iLowH / 2;
 	iHighH = iHighH / 2;
 
+	//lower intensity
 	int iLowS = 50;
 	int iHighS = 255;
 
+	//higher intensity
 	int iLowV = 0;
 	int iHighV = 255;
 
@@ -56,7 +58,8 @@ int main(int argc, char** argv)
 
 	//cvCreateTrackbar("LowV", "Control", &iLowV, 255); //Value (0 - 255)
 	//cvCreateTrackbar("HighV", "Control", &iHighV, 255);
-
+	
+	//operation loop(always)
 	while (true)
 	{
 		//Mat imgOriginal = imread("C:/Users/Kyle/Desktop/1.png");
@@ -66,22 +69,22 @@ int main(int argc, char** argv)
 
 		if (!bSuccess) //if not success, break loop
 		{
-			cout << "Cannot read a frame from video stream" << endl;
+			cout << "Cannot read a frame from video stream" << endl;//read failed
 			break;
 		}
-		Mat img = imgOriginal.clone();
-		int width = img.size().width;
-		int height = img.size().height;
+		Mat img = imgOriginal.clone(); //image matrix from camera
+		int width = img.size().width; //image width as integer
+		int height = img.size().height; // image heighth as an integer
 		Mat black = Mat::zeros(height, width, CV_8UC3);
-		threshold(img, img, 100, 255, 0);
+		threshold(img, img, 100, 255, 0); //takes values of RGB of each pixel and sets it to 255 if over 100 and 0 if below
 		Mat imgHSV;
 
 
-		cvtColor(img, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
+		cvtColor(img, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from RGB to HSV 
 
-		Mat imgThresholded;
+		Mat imgThresholded; 
 
-		inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
+		inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image for a specific hue range
 
 		//morphological opening (remove small objects from the foreground)
 		erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
@@ -102,14 +105,14 @@ int main(int argc, char** argv)
 
 
 
-		Mat thresh = imgThresholded.clone();
+		Mat thresh = imgThresholded.clone(); //copy imgthreshold into thresh
 
 
 		//contour();
 		for (int i = 0; i < 1; i++)
 		{
 
-			contour(thresh, imgOriginal, black);
+			contour(thresh, imgOriginal, black); //call the contour code
 
 		}
 		imshow("img", img);
@@ -120,7 +123,7 @@ int main(int argc, char** argv)
 		if (waitKey(30) == 27) //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
 		{
 			cout << "esc key is pressed by user" << endl;
-			break;
+			break; //end operation
 		}
 	}
 
