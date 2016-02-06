@@ -45,14 +45,14 @@ int main(int argc, char** argv)
 
 	int iLowV = 0;
 	int iHighV = 255;
-
+	Mat imgOriginal;
 
 	while (true)
 	{
 		Mat img;
 
 		bool bSuccess = cap.read(imgOriginal); // read a new frame from video
-
+		img = imgOriginal.clone();
 		if (!bSuccess) //if not success, break loop
 		{
 			cout << "Cannot read a frame from video stream" << endl;
