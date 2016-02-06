@@ -26,15 +26,15 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
-	VideoCapture cap(0); //capture the video from web cam
+	VideoCapture cap(0); //capture the video from web cam,0 means default
 
-	//if (!cap.isOpened())  // if not success, exit program
-	//{
-	//	cout << "Cannot open the web cam" << endl;
-	//	return -1;
-	//}
+	if (!cap.isOpened())  // if not success, exit program
+	{
+		cout << "Cannot open the web cam" << endl;
+		return -1;
+	}
 
-
+	//Set the color value for Hue, Saturation, Brightness/Value.
 	int iLowH = 0;
 	int iHighH = 50;
 	iLowH = iLowH / 2;
@@ -47,20 +47,9 @@ int main(int argc, char** argv)
 	int iHighV = 255;
 
 
-	////Create trackbars in "Control" window
-	//cvCreateTrackbar("LowH", "Control", &iLowH, 179); //Hue (0 - 179)
-	//cvCreateTrackbar("HighH", "Control", &iHighH, 179);
-
-	//cvCreateTrackbar("LowS", "Control", &iLowS, 255); //Saturation (0 - 255)
-	//cvCreateTrackbar("HighS", "Control", &iHighS, 255);
-
-	//cvCreateTrackbar("LowV", "Control", &iLowV, 255); //Value (0 - 255)
-	//cvCreateTrackbar("HighV", "Control", &iHighV, 255);
-
 	while (true)
 	{
-		//Mat imgOriginal = imread("C:/Users/Kyle/Desktop/1.png");
-		Mat imgOriginal;
+		Mat img;
 
 		bool bSuccess = cap.read(imgOriginal); // read a new frame from video
 
@@ -69,19 +58,18 @@ int main(int argc, char** argv)
 			cout << "Cannot read a frame from video stream" << endl;
 			break;
 		}
-		Mat img = imgOriginal.clone();
 		int width = img.size().width;
 		int height = img.size().height;
-		Mat black = Mat::zeros(height, width, CV_8UC3);
-		threshold(img, img, 100, 255, 0);
+		Mat black = Mat::zeros(height, width, CV_8UC3); //Empty Image of Zeros
+		threshold(img, img, 100, 255, 0); //Change Value to Max or Min based on threshold Value
 		Mat imgHSV;
 
 
 		cvtColor(img, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV
 
-		Mat imgThresholded;
+		Mat imgThresholded; 
 
-		inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image
+		inRange(imgHSV, Scalar(iLowH, iLowS, iLowV), Scalar(iHighH, iHighS, iHighV), imgThresholded); //Threshold the image For Hue using Upper and Lower Ranges
 
 		//morphological opening (remove small objects from the foreground)
 		erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
@@ -91,37 +79,13 @@ int main(int argc, char** argv)
 		dilate(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
 		erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));
 
-		
-		//for (int i = 0; i < 1; i++)
-		//{
-		//	blur(imgThresholded, imgThresholded, Size(15, 15));
-		//	erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(10, 10)));
-		//	//dilate(imgThresholded, imgThresholded, getStructuringElement(MORPH_CROSS, Size(10, 10)));
-		//	threshold(imgThresholded, imgThresholded, 50, 255, 0);
-		//}
+		contour(imgThresholded, imgOriginal, black);
 
-
-
-		Mat thresh = imgThresholded.clone();
-
-
-		//contour();
-		for (int i = 0; i < 1; i++)
-		{
-
-			contour(thresh, imgOriginal, black);
-
-		}
 		imshow("img", img);
 		imshow("black", black);
 		imshow("Thresholded Image", imgThresholded); //show the thresholded image
 		imshow("Original", imgOriginal); //show the original image
 
-		if (waitKey(30) == 27) //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
-		{
-			cout << "esc key is pressed by user" << endl;
-			break;
-		}
 	}
 
 	return 0;
