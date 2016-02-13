@@ -59,9 +59,7 @@
 		AE245B911C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE245B5D1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */; };
 		AE245B921C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE245B5E1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */; };
 		AE245B931C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE245B5F1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */; };
-		AEBD73CE1C53FF6A00C4CBB0 /* setlabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBD73CD1C53FF6A00C4CBB0 /* setlabel.cpp */; };
 		AEBD73D01C53FF7400C4CBB0 /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBD73CF1C53FF7400C4CBB0 /* Source.cpp */; };
-		AEBD73D21C53FF8200C4CBB0 /* contour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEBD73D11C53FF8200C4CBB0 /* contour.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,9 +128,7 @@
 		AE245B5D1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.0.0.dylib; path = /usr/local/lib/libopencv_videostab.3.0.0.dylib; sourceTree = "<absolute>"; };
 		AE245B5E1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.0.0.dylib; path = /usr/local/lib/libopencv_videostab.3.0.0.dylib; sourceTree = "<absolute>"; };
 		AE245B5F1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.0.0.dylib; path = /usr/local/lib/libopencv_videostab.3.0.0.dylib; sourceTree = "<absolute>"; };
-		AEBD73CD1C53FF6A00C4CBB0 /* setlabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = setlabel.cpp; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/282D7DED-CE6D-439E-B0DE-2CF86521F0F8/setlabel.cpp"; sourceTree = "<group>"; };
 		AEBD73CF1C53FF7400C4CBB0 /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Source.cpp; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/9467597D-FE2C-4385-8675-152CCD851A4C/Source.cpp"; sourceTree = "<group>"; };
-		AEBD73D11C53FF8200C4CBB0 /* contour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = contour.cpp; sourceTree = "<group>"; };
 		AEBD73D31C53FF9300C4CBB0 /* isrheader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = isrheader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,9 +215,7 @@
 		AE245B241C230E2E0086A6E0 /* northgroup */ = {
 			isa = PBXGroup;
 			children = (
-				AEBD73D11C53FF8200C4CBB0 /* contour.cpp */,
 				AEBD73CF1C53FF7400C4CBB0 /* Source.cpp */,
-				AEBD73CD1C53FF6A00C4CBB0 /* setlabel.cpp */,
 			);
 			path = northgroup;
 			sourceTree = "<group>";
@@ -343,8 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBD73D01C53FF7400C4CBB0 /* Source.cpp in Sources */,
-				AEBD73D21C53FF8200C4CBB0 /* contour.cpp in Sources */,
-				AEBD73CE1C53FF6A00C4CBB0 /* setlabel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
