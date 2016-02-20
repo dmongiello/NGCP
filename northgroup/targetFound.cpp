@@ -7,12 +7,14 @@
 //
 
 #include "main.hpp"
+#include <iostream>
+using namespace std;
 
 // This is David's file please make a functions that notifies the system that a target has been found.
 
 
 
-//void targetFound()
-//{
-//    cout << "Target Found";
-//}
+void targetFound()
+{
+    cout << "Target Found" << endl;
+}
