@@ -10,16 +10,11 @@
 #include <iostream>
 using namespace std;
 
-// Had to edit preprocessor definitions to get timeStamp to work (Error C4996). properties> config>prop. > C/C++> preprocessor> prepross. def.> Edit
-// Type in "_CRT_SECURE_NO_WARNINGS" and save  - Michael Perez
 
 
 
 void targetFound()
 {
     
-cout << "Target Found" << endl;
-time_t ltime; /* calendar time */
-ltime = time(NULL); /* get current cal time */
-printf("%s", asctime(localtime(&ltime)));
+
 }
