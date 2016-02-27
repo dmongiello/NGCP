@@ -7,7 +7,8 @@
 #include HoughCircle.cpp
 using namespace std;
 
-
+// Had to edit preprocessor definitions to get timeStamp to work (Error C4996). properties> config>prop. > C/C++> preprocessor> prepross. def.> Edit
+// Type in "_CRT_SECURE_NO_WARNINGS" and save  - Michael Perez
 
 void angleRad(Mat imgThresholded){
 
@@ -23,7 +24,7 @@ void angleRad(Mat imgThresholded){
 
 	
 	double rad = sqrt(diff[0]*diff[0] + diff[1]*diff[1]);
-	double angle = atan(diff[0] / diff[1]);
+	double angle = atan2(diff[0] / diff[1]);
 	time_t ltime; /* calendar time */
 	ltime = time(NULL); /* get current cal time */
 	printf("%s", asctime(localtime(&ltime)));
