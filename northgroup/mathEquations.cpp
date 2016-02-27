@@ -8,6 +8,7 @@
 using namespace std;
 
 
+
 void angleRad(Mat imgThresholded){
 
 	double widX = imgThresholded.cols;//takes width of img
@@ -23,7 +24,9 @@ void angleRad(Mat imgThresholded){
 	
 	double rad = sqrt(diff[0]*diff[0] + diff[1]*diff[1]);
 	double angle = atan(diff[0] / diff[1]);
-	cout << time(0) << endl;
+	time_t ltime; /* calendar time */
+	ltime = time(NULL); /* get current cal time */
+	printf("%s", asctime(localtime(&ltime)));
 	
 
 
