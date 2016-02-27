@@ -11,7 +11,7 @@
 using namespace std;
 
 // Had to edit preprocessor definitions to get timeStamp to work (Error C4996). properties> config>prop. > C/C++> preprocessor> prepross. def.> Edit
-// Type in "_CRT_SECURE_NO_WARNINGS" and save
+// Type in "_CRT_SECURE_NO_WARNINGS" and save  - Michael Perez
 
 
 
