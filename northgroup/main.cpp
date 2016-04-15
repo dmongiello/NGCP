@@ -24,6 +24,7 @@ int main(int argc, char** argv)
     
     while (true)
     {
+        
         Mat imgOriginal;
         Mat imgThresholded;
         bool bSuccess = cap.read(imgOriginal); // read a new frame from video
@@ -33,7 +34,7 @@ int main(int argc, char** argv)
             cout << "Cannot read a frame from video stream" << endl;
             break;
         }
-        
+        Target t;
         Mat black = Mat::zeros(imgOriginal.size().height, imgOriginal.size().width, CV_8UC3);
         threshold(  imgOriginal,   imgOriginal, 100, 255, 0);
         Mat imgHSV;
@@ -44,7 +45,7 @@ int main(int argc, char** argv)
         // Clean all the small circles from the image
         cleanImage(imgThresholded);
         //contour()
-        contour(imgThresholded, imgOriginal, black);
+        contour(imgThresholded, imgOriginal, black, t);
         //show the original image
         imshow("Original", imgOriginal);
         if (waitKey(30) == 27) //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
@@ -53,6 +54,7 @@ int main(int argc, char** argv)
             break;
         }
     }
+    
     
     return 0;
     

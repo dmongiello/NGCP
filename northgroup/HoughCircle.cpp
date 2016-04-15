@@ -45,7 +45,7 @@ void HoughCircle(Mat imgThresholded, Mat imgOriginal)
 		// circle outline
 		circle(imgOriginal, center, radius, Scalar(0, 0, 0), 3, 8, 0);
 
-		targetfound(center, radius);
+	//	targetfound(center, radius);
 	}
 
 }

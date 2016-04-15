@@ -41,7 +41,7 @@ using namespace std;
 void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& contour);
 
 
-void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img);
+void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img, Target targetArray);
 void cleanImage(Mat& imgThresholded); 
 
 #endif

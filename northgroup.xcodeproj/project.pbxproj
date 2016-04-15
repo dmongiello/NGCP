@@ -61,6 +61,7 @@
 		AE245B911C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE245B5D1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */; };
 		AE245B921C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE245B5E1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */; };
 		AE245B931C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE245B5F1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */; };
+		AE96D0B31CC0AEA500593D51 /* Target.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE96D0B21CC0AEA500593D51 /* Target.cpp */; };
 		AEDA9FDD1C7116D500A29B34 /* setlabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEDA9FDC1C7116D500A29B34 /* setlabel.cpp */; };
 		AEDA9FE01C7137FD00A29B34 /* cleanImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEDA9FDE1C7137FD00A29B34 /* cleanImage.cpp */; };
 		AEDA9FE21C7142B400A29B34 /* mathEquations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AEDA9FE11C7142B400A29B34 /* mathEquations.cpp */; };
@@ -137,6 +138,8 @@
 		AE245B5D1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.0.0.dylib; path = /usr/local/lib/libopencv_videostab.3.0.0.dylib; sourceTree = "<absolute>"; };
 		AE245B5E1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.0.0.dylib; path = /usr/local/lib/libopencv_videostab.3.0.0.dylib; sourceTree = "<absolute>"; };
 		AE245B5F1C230F3B0086A6E0 /* libopencv_videostab.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.3.0.0.dylib; path = /usr/local/lib/libopencv_videostab.3.0.0.dylib; sourceTree = "<absolute>"; };
+		AE96D0B11CC0AE9A00593D51 /* Target.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Target.h; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/FE916949-1F61-46DD-B216-569DBCFBF4BD/Target.h"; sourceTree = "<group>"; };
+		AE96D0B21CC0AEA500593D51 /* Target.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Target.cpp; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/2377AC0D-305B-4975-AF38-95B8DF021E7A/Target.cpp"; sourceTree = "<group>"; };
 		AEBD73D31C53FF9300C4CBB0 /* isrheader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = isrheader.h; sourceTree = "<group>"; };
 		AEDA9FDC1C7116D500A29B34 /* setlabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = setlabel.cpp; sourceTree = "<group>"; };
 		AEDA9FDE1C7137FD00A29B34 /* cleanImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cleanImage.cpp; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				AEDA9FDE1C7137FD00A29B34 /* cleanImage.cpp */,
 				AE0C260F1C703415001DB882 /* main.cpp */,
 				AE0C26101C703415001DB882 /* main.hpp */,
+				AE96D0B11CC0AE9A00593D51 /* Target.h */,
+				AE96D0B21CC0AEA500593D51 /* Target.cpp */,
 				AEDA9FE11C7142B400A29B34 /* mathEquations.cpp */,
 				AEDA9FE31C71432100A29B34 /* targetHandler.cpp */,
 				AEDA9FE61C7143B400A29B34 /* targetFound.cpp */,
@@ -358,6 +363,7 @@
 			files = (
 				AE0C26131C70349A001DB882 /* contour.cpp in Sources */,
 				AEDA9FE51C71432100A29B34 /* targetHandler.cpp in Sources */,
+				AE96D0B31CC0AEA500593D51 /* Target.cpp in Sources */,
 				AEDA9FE71C7143B400A29B34 /* targetFound.cpp in Sources */,
 				AEDA9FE21C7142B400A29B34 /* mathEquations.cpp in Sources */,
 				AEDA9FE01C7137FD00A29B34 /* cleanImage.cpp in Sources */,

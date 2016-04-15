@@ -1,6 +1,6 @@
                       
 #include "main.hpp"
-
+#include <fstream>
 using namespace cv;
 using namespace std;
 
@@ -10,7 +10,7 @@ using namespace std;
 // Returns void.
 // Passes the image by reference and cacluates the countours to estamate a circle. 
 
-void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img)
+void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img, Target  targetArray)
 {
     Mat bw;
     Canny(imgThresholded, bw, 0, 50, 5);
@@ -32,6 +32,22 @@ void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img)
         
         if (abs(1 - ((double)r.width / r.height)) <= 0.2 && abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2 && area > 200)
         {
+            // Set target as found
+            targetArray.setFound(true);
+            time_t timer = time(nullptr);
+            
+            //this is how you get the time stamp to be a char * of time and date.
+            targetArray.setTime(asctime(localtime(&timer)));
+            
+            targetArray.setPosition(1000);
+            targetArray.setFound(true);
+            
+            
+            cout << targetArray.str();
+            ofstream myfile;
+            myfile.open ("targeting.text", ios::out | ios::app);
+            myfile << targetArray.str();
+
             setLabel(imgOriginal, "CIR", contours[i]);
             Mat drawing = Mat::zeros(imgThresholded.size(), CV_8UC3);
             for (int i = 0; i< contours.size(); i++    )
