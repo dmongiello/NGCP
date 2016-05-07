@@ -10,7 +10,7 @@ using namespace std;
 // Returns void.
 // Passes the image by reference and cacluates the countours to estamate a circle. 
 
-void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img, Target  targetArray)
+void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img, Target targetArray)
 {
     Mat bw;
     //Finding the Edges of the image
@@ -26,9 +26,6 @@ void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img, Target  targetArra
     
     for (int i = 0; i < contours.size(); i++) //set labels or identify shapes in this loop
     {
-        //
-        //approxPolyDP(Mat(contours[i]), contours_poly, 1, true);
-        //approxPolyDP(Mat(contours[i]), contours_draw[i], 1, true);
         
         //Area inside the Contours
         double area = cv::contourArea(contours[i]);
@@ -42,24 +39,12 @@ void contour(Mat& imgThresholded, Mat& imgOriginal, Mat& img, Target  targetArra
         //Theorectical Error = 1 - (Actual Area / theorectical area)
         bool Error = abs(1 - (area / (CV_PI * std::pow(radius, 2)))) <= 0.2;
         
-        if (BoundingRecForCircles && Error && area < 30)
+        bool AreaBound = (area < 1400 && area > 1100);
+       
+        
+        
+        if (BoundingRecForCircles && Error && AreaBound)
        {
-           /*
-            // Set target as found
-            targetArray.setFound(true);
-            time_t timer = time(nullptr);
-            //this is how you get the time stamp to be a char * of time and date.
-            targetArray.setTime(asctime(localtime(&timer)));
-            targetArray.setFound(true);
-            //cout << targetArray.str();
-            
-            //Sending info to a file
-            ofstream myfile;
-            myfile.open ("targeting.text", ios::out | ios::app);
-            myfile << targetArray.str();
-            */
-           
-
            
             setLabel(imgOriginal, "CIR", contours[i]);
            

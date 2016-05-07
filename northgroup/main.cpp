@@ -7,13 +7,14 @@ using namespace std;
 int main(int argc, char** argv)
 {
     
-    VideoCapture cap(0); //capture the video from web cam
+   VideoCapture cap("/Users/Home/Desktop/test.avi"); //capture the video from web cam
     
     if (!cap.isOpened())  // if not success, exit program
     {
         cout << "Cannot open the web cam" << endl;
         return -1;
     }
+    
     
     //Hue Values (Color)
     int iLowH = 0;
@@ -29,14 +30,12 @@ int main(int argc, char** argv)
     //4196 x 2160
     
     
-    
-    
-    
     while (true)
     {
         
-        Mat imgOriginal = imread("/Users/Home/Desktop/PurpleCir.jpg");
+        Mat imgOriginal;
         Mat imgThresholded;
+        
         bool bSuccess = cap.read(imgOriginal); // read a new frame from video
         
         if (!bSuccess) //if not success, break loop
@@ -44,7 +43,6 @@ int main(int argc, char** argv)
             cout << "Cannot read a frame from video stream" << endl;
             break;
         }
-        //cout << imgOriginal.size().width<< "X" << imgOriginal.size().height << endl;
 
         Target t;
         

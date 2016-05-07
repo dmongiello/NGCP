@@ -5,30 +5,30 @@
 
 class Target {
 private:
-	char* tTime; 
-	int height;
-    int width;
-	std::string sector;
-	bool tFound;
-
+    //THESE ARE IN SECONDS, as in Degrees.minutes.Seconds.
+    double tLongitude;
+    double tLatitude;
 public:
 	//constructor
-	Target();
-
-
+    Target();
+    
+    //GET MAVLINK INFO
+    double getTheta();
+    //Value in seconds
+    double getGPSlongitude();
+    double getGPSlatitude();
+    
 	//getters
-	char * getTime() const{return tTime;}
-	int getHeight()const{return height;}
-    int getWidth()const{return width;}
-    //std::string getPlanePos()const {return sector;}
-	bool getFound()const{return tFound;}
-
-	//setters
-    //void setPlanePos(std::string sector);
-	void setTime(char * n){tTime = n;}
-	void setHeight(int n){height = n;}
-    void setWidth(int n){width = n;}
-	void setFound(bool a){tFound = a;}
-	std::string str() const;
+    double getLongitude() const { return tLongitude;}
+    double getLatitude() const { return tLatitude;}
+   
+    
+    /* --- MAVLINK --- */
+    //setters for the seconds of the gps coordinate of the targert, in seconds.
+    void setLongitude(double n){ tLongitude = n;}
+    void setLatititude (double n) { tLatitude = n;}
+    
+    //Helper Functions
+    void mathEquations(double x, double  y);
 };
 #endif

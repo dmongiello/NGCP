@@ -22,7 +22,16 @@ void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& cont
  	cv::rectangle(im, pt + cv::Point(0, baseline), pt + cv::Point(text.width, -text.height), CV_RGB(255, 255, 255), CV_FILLED);
 	cv::putText(im, label, pt, fontface, scale, CV_RGB(0, 0, 0), thickness, 8);
     
+
+    double xNot = r.x + ((r.width - text.width) / 2);
+    double yNot = r.y + ((r.height + text.height) / 2);
     
-    cout << "x: " << r.x + ((r.width - text.width) / 2) << " y: " << r.y + ((r.height + text.height) / 2)<< endl;
-}
+    
+    cout << "x: " << xNot << " y: " << yNot << endl;
+    //Target t;
+    //t.mathEquations(xNot, yNot);
+    
+    
+};
+
 
